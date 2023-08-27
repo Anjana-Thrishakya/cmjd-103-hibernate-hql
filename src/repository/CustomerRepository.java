@@ -23,4 +23,12 @@ public class CustomerRepository {
         return customerEntities;
 
     }
+
+    public List<Object[]> getAllCustomersByNative(){
+        String sql = "SELECT * FROM Customer";
+        Query query = session.createSQLQuery(sql);
+        List<Object[]> data = query.list();
+        return data;
+
+    }
 }
