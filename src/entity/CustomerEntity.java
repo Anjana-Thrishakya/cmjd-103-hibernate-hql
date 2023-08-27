@@ -1,10 +1,12 @@
 package entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -49,4 +51,8 @@ public class CustomerEntity {
 
     @Column(name = "PostalCode", length = 9)
     private String zipCode;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "customerEntity", targetEntity = OrderEntity.class)
+    private List<OrderEntity> orderEntities;
 }
